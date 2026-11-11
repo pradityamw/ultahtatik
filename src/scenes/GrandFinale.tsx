@@ -11,7 +11,6 @@ import {
   Heart,
   RefreshCw,
   Calendar,
-  MapPin,
   Clock,
   CheckCircle,
 } from 'lucide-react';
