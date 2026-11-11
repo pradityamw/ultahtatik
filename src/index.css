@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #ff4f80;
+    --color-primary-dark: #c5164d;
+    --color-gold: #d4af37;
+    --color-gold-light: #fdf6e2;
+    --color-blush: #ffd6df;
+    --color-cream: #fdfbf7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff0f3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ffb2c6;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff80a3;
+  }
+}
+
+/* 3D Transform Utilities for Card Flips & Envelope */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Polaroid Photo Styling */
+.polaroid-card {
+  box-shadow: 0 10px 25px -5px rgba(232, 110, 142, 0.22), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.polaroid-card:hover {
+  box-shadow: 0 20px 35px -10px rgba(232, 110, 142, 0.35), 0 12px 16px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Ticket Perforations for Vouchers */
+.ticket-perforation-left,
+.ticket-perforation-right {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fdfbf7;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.ticket-perforation-left {
+  left: -12px;
+}
+
+.ticket-perforation-right {
+  right: -12px;
+}
+
+/* Envelope Flap Transition */
+.envelope-flap {
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope-flap.open {
+  transform: rotateX(180deg);
+}
+
+/* Animations */
+@keyframes heartFloat {
+  0% {
+    transform: translateY(105vh) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.1) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.animate-heart-float {
+  animation: heartFloat linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 79, 128, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 79, 128, 0.7);
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.65);
+  }
+}
+
+.animate-gold-glow {
+  animation: goldGlow 3s ease-in-out infinite;
+}
